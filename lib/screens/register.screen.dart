@@ -12,7 +12,7 @@ class RegisterScreen extends StatelessWidget {
         child: Container(
           width: size.width,
           height: size.height,
-          color: Color(0xFFE8F5E9),
+          color: const Color(0xFFE8F5E9),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -28,11 +28,13 @@ class RegisterScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 20),
-                _buildTextField('Enter your name'),
-                _buildTextField('Enter your surname'),
-                _buildTextField('Enter your email'),
-                _buildTextField('Enter your password', isPassword: true),
-                _buildTextField('Confirm password', isPassword: true),
+                _buildTextField('Enter your name', Icons.person),
+                _buildTextField('Enter your surname', Icons.person),
+                _buildTextField('Enter your email', Icons.email),
+                _buildTextField('Enter your password', Icons.lock,
+                    isPassword: true),
+                _buildTextField('Confirm password', Icons.lock,
+                    isPassword: true),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {},
@@ -98,7 +100,8 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildTextField(String hintText, {bool isPassword = false}) {
+  Widget _buildTextField(String hintText, IconData icon,
+      {bool isPassword = false}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
       child: TextField(
@@ -107,6 +110,7 @@ class RegisterScreen extends StatelessWidget {
           fillColor: Colors.white,
           filled: true,
           hintText: hintText,
+          prefixIcon: Icon(icon, color: Colors.green),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
             borderSide: const BorderSide(),

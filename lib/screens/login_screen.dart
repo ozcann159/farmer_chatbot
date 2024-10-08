@@ -28,8 +28,9 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: screenSize.height * 0.03),
                 Image.asset('assets/images/login.png'),
                 const SizedBox(height: 20),
-                _buildTextField('Enter your e-mail'),
-                _buildTextField('Enter your password'),
+                _buildTextField('Enter your e-mail', Icons.email),
+                _buildTextField('Enter your password', Icons.lock,
+                    isPassword: true),
                 GestureDetector(
                   onTap: () {
                     // Şifre unuttum işlemleri için yönlendirme islemleri
@@ -110,7 +111,8 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
-Widget _buildTextField(String hintText, {bool isPassword = false}) {
+Widget _buildTextField(String hintText, IconData icon,
+    {bool isPassword = false}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
     child: TextField(
@@ -119,6 +121,10 @@ Widget _buildTextField(String hintText, {bool isPassword = false}) {
         fillColor: Colors.white,
         filled: true,
         hintText: hintText,
+        prefixIcon: Icon(
+          icon,
+          color: Colors.green,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(),
