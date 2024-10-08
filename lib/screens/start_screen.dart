@@ -1,3 +1,4 @@
+import 'package:farmer_chatbot/screens/register.screen.dart';
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatelessWidget {
@@ -39,7 +40,9 @@ class StartScreen extends StatelessWidget {
               ),
               SizedBox(height: screenSize.height * 0.02),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen(),),);
+                },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 70.0, vertical: 12.0),
