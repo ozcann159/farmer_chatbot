@@ -61,7 +61,7 @@ class RegisterScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LoginScreen(),
+                        builder: (context) => const LoginScreen(),
                       ),
                     );
                   },
@@ -89,7 +89,7 @@ class RegisterScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 50), // Alt tarafta biraz boşluk
+                const SizedBox(height: 50),
               ],
             ),
           ),
@@ -117,7 +117,7 @@ class RegisterScreen extends StatelessWidget {
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
-            borderSide: const BorderSide(color: Colors.grey),
+            borderSide: const BorderSide(color: Colors.white),
           ),
         ),
       ),
