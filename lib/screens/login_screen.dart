@@ -1,3 +1,4 @@
+import 'package:farmer_chatbot/screens/forgot_password.dart';
 import 'package:farmer_chatbot/screens/register.screen.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +34,12 @@ class LoginScreen extends StatelessWidget {
                     isPassword: true),
                 GestureDetector(
                   onTap: () {
-                    // Şifre unuttum işlemleri için yönlendirme islemleri
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ForgotPasswordScreen(),
+                      ),
+                    );
                   },
                   child: const Padding(
                     padding: EdgeInsets.only(top: 10.0),
