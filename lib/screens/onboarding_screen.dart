@@ -1,4 +1,5 @@
 import 'package:farmer_chatbot/screens/content_model.dart';
+import 'package:farmer_chatbot/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class Onboarding extends StatefulWidget {
@@ -90,7 +91,12 @@ class _OnboardingState extends State<Onboarding> {
             child: TextButton(
               onPressed: () {
                 if (currentIndex == contents.length - 1) {
-               
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(),
+                    ),
+                  );
                 } else {
                   _controller.nextPage(
                     duration: Duration(milliseconds: 100),
