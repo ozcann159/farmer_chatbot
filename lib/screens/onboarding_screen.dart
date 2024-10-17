@@ -1,5 +1,5 @@
 import 'package:farmer_chatbot/screens/content_model.dart';
-import 'package:farmer_chatbot/screens/login_screen.dart';
+import 'package:farmer_chatbot/screens/login_screen1.dart';
 import 'package:flutter/material.dart';
 
 class Onboarding extends StatefulWidget {
@@ -94,7 +94,7 @@ class _OnboardingState extends State<Onboarding> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => LoginScreen(),
+                      builder: (context) => LoginScreen1(),
                     ),
                   );
                 } else {
@@ -114,6 +114,9 @@ class _OnboardingState extends State<Onboarding> {
                 currentIndex == contents.length - 1 ? "Continue" : "Next",
                 style: const TextStyle(
                   color: Colors.white,
+                  fontFamily: 'Urbanist',
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
