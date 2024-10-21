@@ -1,64 +1,71 @@
-import 'package:farmer_chatbot/screens/forgot_password.dart';
-import 'package:farmer_chatbot/screens/register.screen.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool _obscurePassword = true; // Şifreyi gizlemek için başlangıçta true
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          width: size.width,
-          height: size.height,
-          color: const Color(0xFFE8F5E9),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(top: 50),
-                  child: Text(
-                    'Welcome to NovaGPT',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                  ),
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: screenSize.height * 0.3),
+              const Text(
+                'Login Your\nAccount',
+                style: TextStyle(
+                  fontFamily: 'Urbanist',
+                  fontSize: 40,
+                  fontWeight: FontWeight.w600,
+                  height: 1.2,
+                  color: Color.fromRGBO(110, 224, 20, 1),
                 ),
-                SizedBox(height: screenSize.height * 0.03),
-                Image.asset('assets/images/login.png'),
-                const SizedBox(height: 20),
-                _buildTextField('Enter your e-mail', Icons.email),
-                _buildTextField('Enter your password', Icons.lock,
-                    isPassword: true),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ForgotPasswordScreen(),
-                      ),
-                    );
-                  },
-                  child: const Padding(
+                textAlign: TextAlign.start,
+              ),
+              const SizedBox(height: 20),
+              _buildTextField('Enter Your E-mail', Icons.email_outlined),
+              _buildPasswordField('Password', Icons.lock_clock_outlined),
+              GestureDetector(
+                onTap: () {
+                  // Forgot Password functionality
+                },
+                child: const Align(
+                  alignment: Alignment.centerRight,
+                  child: Padding(
                     padding: EdgeInsets.only(top: 10.0),
                     child: Text(
                       'Forgot password?',
                       style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold),
+                        color: Colors.grey,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 30),
-                ElevatedButton(
+              ),
+              const SizedBox(height: 20),
+              Center(
+                child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 70.0, vertical: 12.0),
-                    backgroundColor: const Color(0xFF81C784),
+                        horizontal: 140, vertical: 12),
+                    backgroundColor: const Color(0xFF11C166),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -66,84 +73,128 @@ class LoginScreen extends StatelessWidget {
                     elevation: 5,
                   ),
                   child: const Text(
-                    'Sign in',
+                    'Login',
                     style: TextStyle(
                       fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.normal,
                       color: Colors.white,
                     ),
                   ),
                 ),
-                const SizedBox(height: 30),
-                GestureDetector(
+              ),
+              const SizedBox(height: 20),
+              Center(
+                child: GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => RegisterScreen(),
-                      ),
-                    );
+                    // Sign up navigation
                   },
                   child: RichText(
                     text: const TextSpan(
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.black,
+                        color: Colors.grey,
                       ),
                       children: [
                         TextSpan(
-                          text: 'Don\'t have an account ',
+                          text: 'Create New Account?  ',
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.normal,
                           ),
                         ),
                         TextSpan(
-                          text: 'Sign up',
-                          style: TextStyle(
+                            text: 'Sign up',
+                            style: TextStyle(
                               fontSize: 16,
-                              color: Colors.green,
-                              decoration: TextDecoration.underline),
-                        )
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            )
+                            // decoration: TextDecoration.underline),
+                            )
                       ],
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
     );
   }
-}
 
-Widget _buildTextField(String hintText, IconData icon,
-    {bool isPassword = false}) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
-    child: TextField(
-      obscureText: isPassword,
-      decoration: InputDecoration(
-        fillColor: Colors.white,
-        filled: true,
-        hintText: hintText,
-        prefixIcon: Icon(
-          icon,
-          color: Colors.green,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(color: Colors.green),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(color: Colors.white),
+  // E-mail TextField
+  Widget _buildTextField(String hintText, IconData icon) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+      child: TextField(
+        decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
+          hintText: hintText,
+          hintStyle: const TextStyle(color: Colors.grey),
+          prefixIcon: Icon(
+            icon,
+            color: Colors.black,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
+
+  // Password TextField with toggle visibility icon
+  Widget _buildPasswordField(String hintText, IconData icon) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+      child: TextField(
+        obscureText: _obscurePassword,
+        decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
+          hintText: hintText,
+          hintStyle: const TextStyle(color: Colors.grey),
+          prefixIcon: Icon(
+            icon,
+            color: Colors.black,
+          ),
+          suffixIcon: IconButton(
+            icon: Icon(
+              _obscurePassword
+                  ? Icons.visibility
+                  : Icons.visibility_off_outlined,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              setState(() {
+                _obscurePassword = !_obscurePassword; // Şifre göster/gizle
+              });
+            },
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
+          ),
+        ),
+      ),
+    );
+  }
 }
