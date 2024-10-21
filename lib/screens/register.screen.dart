@@ -1,106 +1,71 @@
-import 'package:farmer_chatbot/models/user_model.dart';
 import 'package:farmer_chatbot/screens/login_screen.dart';
-import 'package:farmer_chatbot/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 // ignore: must_be_immutable
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   RegisterScreen({super.key});
 
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  bool _obscurePassword = true;
   final TextEditingController _nameController = TextEditingController();
+
   final TextEditingController _surnameController = TextEditingController();
+
   final TextEditingController _emailController = TextEditingController();
+
   final TextEditingController _passwordController = TextEditingController();
+
   final TextEditingController _confirmPasswordController =
       TextEditingController();
-  final TextEditingController _phoneController =
-      TextEditingController(); // Yeni telefon kontrolcüsü
+
+  final TextEditingController _phoneController = TextEditingController();
+  // Yeni telefon kontrolcüsü
   final ImagePicker _picker = ImagePicker();
+
   XFile? _image;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          width: size.width,
-          height: size.height,
-          color: const Color(0xFFE8F5E9),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 50),
-                const Text(
-                  'Welcome to NovaGPT',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: screenSize.height * 0.2),
+              const Text(
+                'Create Your\nAccount',
+                style: TextStyle(
+                  fontFamily: 'Urbanist',
+                  fontSize: 40,
+                  fontWeight: FontWeight.w600,
+                  height: 1.2,
+                  color: Color.fromRGBO(110, 224, 20, 1),
                 ),
-                const SizedBox(height: 20),
-                _buildTextField('Enter your name', Icons.person,
-                    controller: _nameController),
-                _buildTextField('Enter your surname', Icons.person,
-                    controller: _surnameController),
-                _buildTextField('Enter your email', Icons.email,
-                    controller: _emailController),
-                _buildTextField('Enter your phone number', Icons.phone,
-                    controller:
-                        _phoneController), // Yeni telefon numarası girişi
-                _buildTextField('Enter your password', Icons.lock,
-                    controller: _passwordController, isPassword: true),
-                _buildTextField('Confirm password', Icons.lock,
-                    controller: _confirmPasswordController, isPassword: true),
-                ElevatedButton(
-                  onPressed: () async {
-                    _image =
-                        await _picker.pickImage(source: ImageSource.gallery);
-                  },
-                  child: const Text('Upload Profile Picture'),
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    String name = _nameController.text;
-                    String surname = _surnameController.text;
-                    String email = _emailController.text;
-                    String phone =
-                        _phoneController.text; // Telefon numarasını alıyoruz
-
-                    String userImage = _image != null
-                        ? _image!.path
-                        : 'https://example.com/default_avatar.png';
-
-                    User user = User(
-                      name: name,
-                      surname: surname,
-                      email: email,
-                      phone: phone, // Telefonu buraya ekliyoruz
-                      userImage: userImage,
-                    );
-
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProfileScreen(
-                          userImage: user.userImage,
-                          userName: user.name,
-                          userSurname: user.surname,
-                          userEmail: user.email,
-                          userPhone: user.phone,
-                        ),
-                      ),
-                    );
-                  },
+                textAlign: TextAlign.start,
+              ),
+              const SizedBox(height: 15),
+              _buildTextField('Full Name', Icons.person_2_outlined),
+              _buildTextField('Enter Your E-mail', Icons.email_outlined),
+              _buildPasswordField('Password', Icons.lock_clock_outlined),
+              const SizedBox(height: 15),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 70.0, vertical: 12.0),
-                    backgroundColor: const Color(0xFF81C784),
+                        horizontal: 140, vertical: 12),
+                    backgroundColor: const Color(0xFF11C166),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -111,77 +76,125 @@ class RegisterScreen extends StatelessWidget {
                     'Register',
                     style: TextStyle(
                       fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.normal,
                       color: Colors.white,
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
-                GestureDetector(
+              ),
+              const SizedBox(height: 15),
+              Center(
+                child: GestureDetector(
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const LoginScreen(),
-                      ),
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
                     );
                   },
                   child: RichText(
                     text: const TextSpan(
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.black,
+                        color: Colors.grey,
                       ),
                       children: [
                         TextSpan(
-                          text: 'Already have an account? ',
+                          text: 'Already Have An Account?  ',
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.normal,
                           ),
                         ),
                         TextSpan(
-                          text: 'Sign in',
-                          style: TextStyle(
+                            text: 'Sign In',
+                            style: TextStyle(
                               fontSize: 16,
-                              color: Colors.green,
-                              decoration: TextDecoration.underline),
-                        )
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            )
+                            // decoration: TextDecoration.underline),
+                            )
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(height: 50),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
     );
   }
 
-  Widget _buildTextField(String hintText, IconData icon,
-      {bool isPassword = false, TextEditingController? controller}) {
+  // E-mail TextField
+  Widget _buildTextField(String hintText, IconData icon) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
       child: TextField(
-        controller: controller,
-        obscureText: isPassword,
         decoration: InputDecoration(
           fillColor: Colors.white,
           filled: true,
           hintText: hintText,
-          prefixIcon: Icon(icon, color: Colors.green),
+          hintStyle: const TextStyle(color: Colors.grey),
+          prefixIcon: Icon(
+            icon,
+            color: Colors.black,
+          ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
-            borderSide: const BorderSide(),
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
-            borderSide: const BorderSide(color: Colors.green),
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
-            borderSide: const BorderSide(color: Colors.white),
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Password TextField with toggle visibility icon
+  Widget _buildPasswordField(String hintText, IconData icon) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+      child: TextField(
+        obscureText: _obscurePassword,
+        decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
+          hintText: hintText,
+          hintStyle: const TextStyle(color: Colors.grey),
+          prefixIcon: Icon(
+            icon,
+            color: Colors.black,
+          ),
+          suffixIcon: IconButton(
+            icon: Icon(
+              _obscurePassword
+                  ? Icons.visibility
+                  : Icons.visibility_off_outlined,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              setState(() {
+                _obscurePassword = !_obscurePassword; // Şifre göster/gizle
+              });
+            },
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
           ),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:farmer_chatbot/screens/register.screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -8,13 +9,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool _obscurePassword = true; // Şifreyi gizlemek için başlangıçta true
-
+  bool _obscurePassword = true; 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     Size screenSize = MediaQuery.of(context).size;
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -86,7 +85,13 @@ class _LoginScreenState extends State<LoginScreen> {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    // Sign up navigation
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            RegisterScreen(), // RegisterScreen'e yönlendiriyoruz
+                      ),
+                    );
                   },
                   child: RichText(
                     text: const TextSpan(
