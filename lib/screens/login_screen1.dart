@@ -17,7 +17,7 @@ class LoginScreen1 extends StatelessWidget {
             Image.asset("assets/images/group1.png"),
             const SizedBox(height: 20),
             const Text(
-              'Welcome to NovaGPT',
+              'Welcome to NovaBOT',
               style: TextStyle(
                 fontFamily: 'Urbanist',
                 fontSize: 40,

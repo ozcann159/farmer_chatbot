@@ -114,7 +114,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               const SizedBox(height: 40),
               ElevatedButton(
-                onPressed: _editProfileField, 
+                onPressed: _editProfileField,
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 70.0, vertical: 12.0),

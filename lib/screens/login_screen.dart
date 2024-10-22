@@ -1,3 +1,5 @@
+import 'package:farmer_chatbot/screens/forgot_password.dart';
+import 'package:farmer_chatbot/screens/menu_screen.dart';
 import 'package:farmer_chatbot/screens/register.screen.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +11,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool _obscurePassword = true; 
+  bool _obscurePassword = true;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -40,7 +42,12 @@ class _LoginScreenState extends State<LoginScreen> {
               _buildPasswordField('Password', Icons.lock_clock_outlined),
               GestureDetector(
                 onTap: () {
-                  // Forgot Password functionality
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ForgotPasswordScreen(),
+                    ),
+                  );
                 },
                 child: const Align(
                   alignment: Alignment.centerRight,
@@ -60,7 +67,14 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 20),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MenuScreen(),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 140, vertical: 12),
@@ -89,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            RegisterScreen(), // RegisterScreen'e yönlendiriyoruz
+                            RegisterScreen(), 
                       ),
                     );
                   },
