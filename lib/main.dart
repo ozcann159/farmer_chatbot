@@ -1,4 +1,4 @@
-import 'package:farmer_chatbot/screens/login_screen.dart'; // Login ekranınızı buradan içe aktarın
+import 'package:farmer_chatbot/screens/login_screen.dart'; 
 import 'package:farmer_chatbot/screens/onboarding_screen.dart';
 import 'package:farmer_chatbot/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
