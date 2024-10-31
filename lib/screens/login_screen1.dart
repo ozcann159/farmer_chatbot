@@ -56,7 +56,7 @@ class LoginScreen1 extends StatelessWidget {
                 Navigator.pushNamed(context, '/login');
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromRGBO(227, 227, 227, 1),
+                backgroundColor: const Color(0xFF16CE6F).withOpacity(0.3),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 140, vertical: 15),
                 shape: RoundedRectangleBorder(
@@ -66,11 +66,10 @@ class LoginScreen1 extends StatelessWidget {
               child: const Text(
                 'Sign Up',
                 style: TextStyle(
-                  fontFamily: 'Urbanist',
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Color.fromRGBO(183, 183, 183, 1),
-                ),
+                    fontFamily: 'Urbanist',
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white),
               ),
             ),
           ],
