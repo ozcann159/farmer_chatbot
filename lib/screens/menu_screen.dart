@@ -2,6 +2,7 @@ import 'package:farmer_chatbot/screens/%C4%B1ndoorSpacesScreen.dart';
 import 'package:farmer_chatbot/screens/devicesScreen.dart';
 import 'package:farmer_chatbot/screens/outdoorSpacesScreen.dart';
 import 'package:farmer_chatbot/screens/settings_screen.dart';
+import 'package:farmer_chatbot/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -31,6 +32,7 @@ class _MenuScreenState extends State<MenuScreen> {
       backgroundColor: Colors.white,
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: backgroundColor,
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(

@@ -30,8 +30,52 @@ class OutdoorSpacesScreen extends StatelessWidget {
           icon: Icon(CupertinoIcons.back),
         ),
       ),
-      body: const Center(
-        child: Text('Outdoor Spaces Content'),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0), // Genel boşluk için
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _buildOutdoorSpaceContainer('Outdoor Space 1', '3 Devices'),
+            _buildOutdoorSpaceContainer('Outdoor Space 2', '1 Device'),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildOutdoorSpaceContainer(String title, String deviceCount) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Container(
+        width: 165,
+        height: 165,
+        padding: const EdgeInsets.all(16.0),
+        decoration: BoxDecoration(
+          color: Colors.grey[100],
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 4,
+              offset: Offset(2, 2),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              deviceCount,
+              style: const TextStyle(fontSize: 16),
+            ),
+          ],
+        ),
       ),
     );
   }
