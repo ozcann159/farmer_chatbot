@@ -62,17 +62,17 @@ class OutdoorSpacesScreen extends StatelessWidget {
           ],
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               title,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
             ),
             const SizedBox(height: 8),
             Text(
               deviceCount,
-              style: const TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 11),
             ),
           ],
         ),
