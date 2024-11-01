@@ -1,4 +1,5 @@
 import 'package:farmer_chatbot/screens/enter_code_screen.dart';
+import 'package:farmer_chatbot/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Center(
           child: Padding(

@@ -1,3 +1,4 @@
+import 'package:farmer_chatbot/utils/constants.dart';
 import 'package:farmer_chatbot/widgets/custom2_text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
