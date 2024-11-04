@@ -15,27 +15,31 @@ class CustomPasswordTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      obscureText: isPassword,
-      decoration: InputDecoration(
-        fillColor: Colors.white,
-        filled: true,
-        hintText: hintText,
-        prefixIcon: Icon(
-          icon,
-          color: Colors.green,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(color: Colors.green),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(color: Colors.white),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+      child: TextField(
+        obscureText: isPassword,
+        decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
+          hintText: hintText,
+          hintStyle: const TextStyle(color: Colors.grey),
+          prefixIcon: Icon(
+            icon,
+            color: Colors.black,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: const BorderSide(color: Colors.black),
+          ),
         ),
       ),
     );

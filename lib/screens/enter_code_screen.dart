@@ -1,6 +1,8 @@
 import 'package:farmer_chatbot/screens/create_new_password.dart';
+import 'package:farmer_chatbot/screens/forgot_password.dart';
 import 'package:farmer_chatbot/utils/constants.dart';
 import 'package:farmer_chatbot/widgets/custom_email_textfield.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class EnterCodeScreen extends StatelessWidget {
@@ -9,6 +11,26 @@ class EnterCodeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: backgroundColor,
+        title: const Text(
+          'Enter Code Screen',
+        ),
+        centerTitle: true,
+        titleTextStyle: const TextStyle(color: appbarColor, fontSize: 17),
+        iconTheme: IconThemeData(color: Colors.green),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ForgotPasswordScreen(),
+              ),
+            );
+          },
+          icon: Icon(CupertinoIcons.back),
+        ),
+      ),
       backgroundColor: backgroundColor,
       body: SafeArea(
         child: Center(

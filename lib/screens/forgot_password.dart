@@ -1,6 +1,8 @@
 import 'package:farmer_chatbot/screens/enter_code_screen.dart';
+import 'package:farmer_chatbot/screens/login_screen.dart';
 import 'package:farmer_chatbot/utils/constants.dart';
 import 'package:farmer_chatbot/widgets/custom_email_textfield.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -16,6 +18,26 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: backgroundColor,
+        title: const Text(
+          'Forgot Password',
+        ),
+        centerTitle: true,
+        titleTextStyle: const TextStyle(color: appbarColor, fontSize: 17),
+        iconTheme: IconThemeData(color: Colors.green),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => LoginScreen(),
+              ),
+            );
+          },
+          icon: Icon(CupertinoIcons.back),
+        ),
+      ),
       backgroundColor: backgroundColor,
       body: SafeArea(
         child: Center(
