@@ -1,3 +1,5 @@
+
+import 'package:farmer_chatbot/widgets/custom_password_text_field.dart';
 import 'package:flutter/material.dart';
 
 class CreateNewPasswordScreen extends StatelessWidget {
@@ -23,11 +25,15 @@ class CreateNewPasswordScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 16),
                 ),
                 const SizedBox(height: 30),
-                _buildTextField('Enter new password', Icons.lock,
-                    isPassword: true),
+                const CustomPasswordTextField(
+                  hintText: 'Enter new password',
+                  icon: Icons.lock,
+                ),
                 const SizedBox(height: 20),
-                _buildTextField('Confirm new password', Icons.lock,
-                    isPassword: true),
+                const CustomPasswordTextField(
+                  hintText: 'Confirm new password',
+                  icon: Icons.lock,
+                ),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
@@ -55,34 +61,6 @@ class CreateNewPasswordScreen extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTextField(String hintText, IconData icon,
-      {bool isPassword = false}) {
-    return TextField(
-      obscureText: isPassword,
-      decoration: InputDecoration(
-        fillColor: Colors.white,
-        filled: true,
-        hintText: hintText,
-        prefixIcon: Icon(
-          icon,
-          color: Colors.green,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(color: Colors.green),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(color: Colors.white),
         ),
       ),
     );

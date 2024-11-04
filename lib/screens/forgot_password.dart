@@ -1,5 +1,6 @@
 import 'package:farmer_chatbot/screens/enter_code_screen.dart';
 import 'package:farmer_chatbot/utils/constants.dart';
+import 'package:farmer_chatbot/widgets/custom_email_textfield.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -29,7 +30,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   style: TextStyle(fontSize: 16),
                 ),
                 const SizedBox(height: 30),
-                _buildEmailField('Enter your e-mail', Icons.email),
+                const CustomEmailTextField(
+                  hintText: 'Enter your e-mail',
+                  icon: Icons.email,
+                ),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
@@ -62,38 +66,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 ),
               ],
             ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  // Email TextField
-  Widget _buildEmailField(String hintText, IconData icon) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
-      child: TextField(
-        keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(
-          fillColor: Colors.white,
-          filled: true,
-          hintText: hintText,
-          hintStyle: const TextStyle(color: Colors.grey),
-          prefixIcon: Icon(
-            icon,
-            color: Colors.black,
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: const BorderSide(color: Colors.black),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: const BorderSide(color: Colors.black),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: const BorderSide(color: Colors.black),
           ),
         ),
       ),

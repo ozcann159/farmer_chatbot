@@ -1,4 +1,6 @@
 import 'package:farmer_chatbot/screens/create_new_password.dart';
+import 'package:farmer_chatbot/utils/constants.dart';
+import 'package:farmer_chatbot/widgets/custom_email_textfield.dart';
 import 'package:flutter/material.dart';
 
 class EnterCodeScreen extends StatelessWidget {
@@ -7,10 +9,7 @@ class EnterCodeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Enter Verification Code'),
-        backgroundColor: const Color(0xFF81C784),
-      ),
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -24,7 +23,10 @@ class EnterCodeScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 16),
                 ),
                 const SizedBox(height: 30),
-                _buildTextField('Enter verification code', Icons.code),
+                const CustomEmailTextField(
+                  hintText: 'Enter verification code',
+                  icon: Icons.code,
+                ),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
@@ -58,32 +60,6 @@ class EnterCodeScreen extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTextField(String hintText, IconData icon) {
-    return TextField(
-      decoration: InputDecoration(
-        fillColor: Colors.white,
-        filled: true,
-        hintText: hintText,
-        prefixIcon: Icon(
-          icon,
-          color: Colors.green,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(color: Colors.green),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(color: Colors.white),
         ),
       ),
     );
