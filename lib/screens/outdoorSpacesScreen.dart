@@ -29,26 +29,49 @@ class OutdoorSpacesScreen extends StatelessWidget {
           },
           icon: Icon(CupertinoIcons.back),
         ),
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(1.0),
+          child: Divider(
+            color: Colors.grey[300],
+            thickness: 1.0,
+          ),
+        ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0), // Genel boşluk için
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        padding: const EdgeInsets.all(16.0), 
+        child: Column(
           children: [
-            _buildOutdoorSpaceContainer('Outdoor Space 1', '3 Devices'),
-            _buildOutdoorSpaceContainer('Outdoor Space 2', '1 Device'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildOutdoorSpaceContainer('Add Space', '', null),
+                _buildOutdoorSpaceContainer(
+                    'Outdoor Space 1', '3 Devices', "assets/images/image7.png"),
+              ],
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildOutdoorSpaceContainer(
+                    'Outdoor Space 2', '3 Devices', "assets/images/image7.png"),
+                _buildOutdoorSpaceContainer(
+                    'Outdoor Space 3', '1 Devices', "assets/images/image7.png"),
+              ],
+            )
           ],
         ),
       ),
     );
   }
 
-  Widget _buildOutdoorSpaceContainer(String title, String deviceCount) {
+  Widget _buildOutdoorSpaceContainer(
+      String title, String deviceCount, String? imagePath) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Container(
         width: 165,
-        height: 165,
+        height: 175,
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           color: Colors.grey[100],
@@ -62,18 +85,54 @@ class OutdoorSpacesScreen extends StatelessWidget {
           ],
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            if (imagePath != null)
+              Image.asset(
+                imagePath,
+                width: 90,
+                height: 60,
+                fit: BoxFit.cover,
+              )
+            else
+              Text(
+                'Add ',
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[800]),
+                textAlign: TextAlign.center,
+              ),
             Text(
-              title,
-              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+              'Space',
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey[800]),
+              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 8),
-            Text(
-              deviceCount,
-              style: const TextStyle(fontSize: 11),
-            ),
+            if (imagePath != null) ...[
+              SizedBox(height: 15),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 6),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  deviceCount,
+                  style: const TextStyle(fontSize: 11, color: Colors.grey),
+                ),
+              ),
+            ]
           ],
         ),
       ),

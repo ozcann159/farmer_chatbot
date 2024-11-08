@@ -43,7 +43,7 @@ class _OnboardingState extends State<Onboarding> {
                 return Padding(
                   padding: const EdgeInsets.all(80.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center, // Ortalayıcı
+                    mainAxisAlignment: MainAxisAlignment.center, 
                     children: [
                       Container(
                         width: screenSize.width * 0.6,
