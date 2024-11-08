@@ -1,3 +1,6 @@
+import 'package:farmer_chatbot/screens/menu_screen.dart';
+import 'package:farmer_chatbot/utils/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatefulWidget {
@@ -17,6 +20,41 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100.0),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 30.0),
+          child: AppBar(
+            backgroundColor: backgroundColor,
+            title: Image.asset(
+              "assets/images/group1.png",
+              width: 44,
+              height: 29,
+            ),
+            centerTitle: true,
+            titleTextStyle: const TextStyle(color: appbarColor, fontSize: 17),
+            iconTheme: IconThemeData(color: Colors.green),
+            leading: IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MenuScreen(),
+                  ),
+                );
+              },
+              icon: Icon(CupertinoIcons.back),
+            ),
+            bottom: PreferredSize(
+              preferredSize: Size.fromHeight(1.0),
+              child: Divider(
+                color: Colors.grey[300],
+                thickness: 1.0,
+              ),
+            ),
+          ),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: Column(
         children: [

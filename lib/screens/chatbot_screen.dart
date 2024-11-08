@@ -1,3 +1,6 @@
+import 'package:farmer_chatbot/screens/menu_screen.dart';
+import 'package:farmer_chatbot/utils/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ChatbotScreen extends StatelessWidget {
@@ -15,6 +18,33 @@ class ChatbotScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: backgroundColor,
+        title: const Text(
+          'Outdoor Spaces',
+        ),
+        centerTitle: true,
+        titleTextStyle: const TextStyle(color: appbarColor, fontSize: 17),
+        iconTheme: IconThemeData(color: Colors.green),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MenuScreen(),
+              ),
+            );
+          },
+          icon: Icon(CupertinoIcons.back),
+        ),
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(1.0),
+          child: Divider(
+            color: Colors.grey[300],
+            thickness: 1.0,
+          ),
+        ),
+      ),
       body: Column(
         children: [
           Container(

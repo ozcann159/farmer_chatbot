@@ -10,35 +10,41 @@ class OutdoorSpacesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      appBar: AppBar(
-        backgroundColor: backgroundColor,
-        title: const Text(
-          'Outdoor Spaces',
-        ),
-        centerTitle: true,
-        titleTextStyle: const TextStyle(color: appbarColor, fontSize: 17),
-        iconTheme: IconThemeData(color: Colors.green),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => MenuScreen(),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100.0),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 30.0),
+          child: AppBar(
+            backgroundColor: backgroundColor,
+            title: const Text(
+              'Outdoor Spaces',
+            ),
+            centerTitle: true,
+            titleTextStyle: const TextStyle(color: appbarColor, fontSize: 17),
+            iconTheme: IconThemeData(color: Colors.green),
+            leading: IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MenuScreen(),
+                  ),
+                );
+              },
+              icon: Icon(CupertinoIcons.back),
+            ),
+            bottom: PreferredSize(
+              preferredSize: Size.fromHeight(1.0),
+              child: Divider(
+                color: Colors.grey[300],
+                thickness: 1.0,
               ),
-            );
-          },
-          icon: Icon(CupertinoIcons.back),
-        ),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(1.0),
-          child: Divider(
-            color: Colors.grey[300],
-            thickness: 1.0,
+            ),
           ),
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0), 
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             Row(
