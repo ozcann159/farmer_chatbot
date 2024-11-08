@@ -1,3 +1,4 @@
+import 'package:farmer_chatbot/screens/create_space_screen.dart';
 import 'package:farmer_chatbot/screens/menu_screen.dart';
 import 'package:farmer_chatbot/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
@@ -50,7 +51,14 @@ class OutdoorSpacesScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildOutdoorSpaceContainer('Add Space', '', null),
+                _buildOutdoorSpaceContainer('Add Space', '', null, () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CreateSpaceScreen(),
+                    ),
+                  );
+                }),
                 _buildOutdoorSpaceContainer(
                     'Outdoor Space 1', '3 Devices', "assets/images/image7.png"),
               ],
@@ -72,74 +80,78 @@ class OutdoorSpacesScreen extends StatelessWidget {
   }
 
   Widget _buildOutdoorSpaceContainer(
-      String title, String deviceCount, String? imagePath) {
+      String title, String deviceCount, String? imagePath,
+      [VoidCallback? onTap]) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: Container(
-        width: 165,
-        height: 175,
-        padding: const EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
-          color: Colors.grey[100],
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 4,
-              offset: Offset(2, 2),
-            ),
-          ],
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            if (imagePath != null)
-              Image.asset(
-                imagePath,
-                width: 90,
-                height: 60,
-                fit: BoxFit.cover,
-              )
-            else
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          width: 165,
+          height: 175,
+          padding: const EdgeInsets.all(16.0),
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 4,
+                offset: Offset(2, 2),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              if (imagePath != null)
+                Image.asset(
+                  imagePath,
+                  width: 90,
+                  height: 60,
+                  fit: BoxFit.cover,
+                )
+              else
+                Text(
+                  'Add ',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[800]),
+                  textAlign: TextAlign.center,
+                ),
               Text(
-                'Add ',
+                'Space',
                 style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey[800]),
                 textAlign: TextAlign.center,
               ),
-            Text(
-              'Space',
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey[800]),
-              textAlign: TextAlign.center,
-            ),
-            if (imagePath != null) ...[
-              SizedBox(height: 15),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
+              if (imagePath != null) ...[
+                SizedBox(height: 15),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 6),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  deviceCount,
-                  style: const TextStyle(fontSize: 11, color: Colors.grey),
+                const SizedBox(height: 6),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    deviceCount,
+                    style: const TextStyle(fontSize: 11, color: Colors.grey),
+                  ),
                 ),
-              ),
-            ]
-          ],
+              ]
+            ],
+          ),
         ),
       ),
     );
