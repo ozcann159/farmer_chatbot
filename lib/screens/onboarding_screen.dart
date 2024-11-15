@@ -28,6 +28,7 @@ class _OnboardingState extends State<Onboarding> {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           Expanded(
@@ -41,9 +42,9 @@ class _OnboardingState extends State<Onboarding> {
               },
               itemBuilder: (_, i) {
                 return Padding(
-                  padding: const EdgeInsets.all(80.0),
+                  padding: const EdgeInsets.all(60.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center, 
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         width: screenSize.width * 0.6,

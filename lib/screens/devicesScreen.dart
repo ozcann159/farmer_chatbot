@@ -30,7 +30,9 @@ class DevicesScreen extends StatelessWidget {
           icon: Icon(CupertinoIcons.back),
         ),
       ),
-      body: const Center(child: Text('Devices Content')),
+      body: const Center(
+        child: Text('Devices Content'),
+      ),
     );
   }
 }

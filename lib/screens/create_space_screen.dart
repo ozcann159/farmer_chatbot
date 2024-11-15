@@ -1,5 +1,5 @@
-import 'package:farmer_chatbot/screens/login_screen.dart';
 import 'package:farmer_chatbot/screens/outdoorSpacesScreen.dart';
+import 'package:farmer_chatbot/screens/outdoorSpacesScreen1.dart';
 import 'package:farmer_chatbot/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -176,13 +176,13 @@ class _CreateSpaceScreenState extends State<CreateSpaceScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 80.0),
+            Spacer(),
             Center(
               child: ElevatedButton(
                 onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const LoginScreen())),
+                        builder: (context) => const OutdoorSpacesScreen1())),
                 style: ElevatedButton.styleFrom(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 120, vertical: 12),
