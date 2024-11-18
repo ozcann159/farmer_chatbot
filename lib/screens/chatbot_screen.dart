@@ -9,11 +9,11 @@ class ChatbotScreen extends StatelessWidget {
   final String userImage;
 
   const ChatbotScreen({
-    Key? key,
+    super.key,
     required this.userName,
     required this.userSurname,
     required this.userImage,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,20 +25,20 @@ class ChatbotScreen extends StatelessWidget {
         ),
         centerTitle: true,
         titleTextStyle: const TextStyle(color: appbarColor, fontSize: 17),
-        iconTheme: IconThemeData(color: Colors.green),
+        iconTheme: const IconThemeData(color: Colors.green),
         leading: IconButton(
           onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => MenuScreen(),
+                builder: (context) => const MenuScreen(),
               ),
             );
           },
-          icon: Icon(CupertinoIcons.back),
+          icon: const Icon(CupertinoIcons.back),
         ),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(1.0),
+          preferredSize: const Size.fromHeight(1.0),
           child: Divider(
             color: Colors.grey[300],
             thickness: 1.0,
@@ -113,7 +113,7 @@ class ChatbotScreen extends StatelessWidget {
                   const LanguageOptions(),
                   const SizedBox(height: 20),
                   TextField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Type your message...',
                       border: OutlineInputBorder(),
                     ),
@@ -130,7 +130,7 @@ class ChatbotScreen extends StatelessWidget {
 }
 
 class LanguageOptions extends StatelessWidget {
-  const LanguageOptions({Key? key}) : super(key: key);
+  const LanguageOptions({super.key});
 
   @override
   Widget build(BuildContext context) {

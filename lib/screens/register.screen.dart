@@ -4,7 +4,7 @@ import 'package:image_picker/image_picker.dart';
 
 // ignore: must_be_immutable
 class RegisterScreen extends StatefulWidget {
-  RegisterScreen({super.key});
+  const RegisterScreen({super.key});
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();

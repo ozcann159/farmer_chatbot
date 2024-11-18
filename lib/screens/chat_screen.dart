@@ -21,7 +21,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
+        preferredSize: const Size.fromHeight(100.0),
         child: Padding(
           padding: const EdgeInsets.only(top: 30.0),
           child: AppBar(
@@ -33,20 +33,20 @@ class _ChatPageState extends State<ChatPage> {
             ),
             centerTitle: true,
             titleTextStyle: const TextStyle(color: appbarColor, fontSize: 17),
-            iconTheme: IconThemeData(color: Colors.green),
+            iconTheme: const IconThemeData(color: Colors.green),
             leading: IconButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MenuScreen(),
+                    builder: (context) => const MenuScreen(),
                   ),
                 );
               },
-              icon: Icon(CupertinoIcons.back),
+              icon: const Icon(CupertinoIcons.back),
             ),
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(1.0),
+              preferredSize: const Size.fromHeight(1.0),
               child: Divider(
                 color: Colors.grey[300],
                 thickness: 1.0,
@@ -164,7 +164,7 @@ class ChatMessage extends StatelessWidget {
         ),
         child: Text(
           message,
-          style: TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 16),
         ),
       ),
     );

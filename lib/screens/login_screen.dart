@@ -195,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             onPressed: () {
               setState(() {
-                _obscurePassword = !_obscurePassword; // Şifre göster/gizle
+                _obscurePassword = !_obscurePassword; 
               });
             },
           ),

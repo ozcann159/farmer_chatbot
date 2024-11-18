@@ -54,7 +54,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       'email': _emailController.text,
       'phone': _phoneController.text,
     };
-    print('Updated Profile: $updatedProfile');
     Navigator.pop(context, updatedProfile);
   }
 

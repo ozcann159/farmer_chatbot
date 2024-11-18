@@ -13,7 +13,6 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
-  bool _obscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +24,17 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         ),
         centerTitle: true,
         titleTextStyle: const TextStyle(color: appbarColor, fontSize: 17),
-        iconTheme: IconThemeData(color: Colors.green),
+        iconTheme: const IconThemeData(color: Colors.green),
         leading: IconButton(
           onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => LoginScreen(),
+                builder: (context) => const LoginScreen(),
               ),
             );
           },
-          icon: Icon(CupertinoIcons.back),
+          icon: const Icon(CupertinoIcons.back),
         ),
       ),
       backgroundColor: backgroundColor,
@@ -63,7 +62,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            const EnterCodeScreen(), // Yeni sayfaya yönlendirme
+                            const EnterCodeScreen(), 
                       ),
                     );
                   },

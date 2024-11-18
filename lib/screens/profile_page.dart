@@ -20,7 +20,7 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 30.0),
-                CircleAvatar(radius: 57.5),
+                const CircleAvatar(radius: 57.5),
                 const SizedBox(height: 70.0),
                 const Custom2TextField(labelText: 'Full Name'),
                 const Custom2TextField(labelText: 'Email'),

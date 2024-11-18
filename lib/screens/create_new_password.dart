@@ -18,17 +18,17 @@ class CreateNewPasswordScreen extends StatelessWidget {
         ),
         centerTitle: true,
         titleTextStyle: const TextStyle(color: appbarColor, fontSize: 17),
-        iconTheme: IconThemeData(color: Colors.green),
+        iconTheme: const IconThemeData(color: Colors.green),
         leading: IconButton(
           onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => EnterCodeScreen(),
+                builder: (context) => const EnterCodeScreen(),
               ),
             );
           },
-          icon: Icon(CupertinoIcons.back),
+          icon: const Icon(CupertinoIcons.back),
         ),
       ),
       body: Container(

@@ -18,12 +18,12 @@ class ChatMessage extends StatelessWidget {
       decoration: BoxDecoration(
         color: isSentByMe
             ? Colors.green[100]
-            : Colors.grey[200], // Kullanıcı yanıtı yeşil, otomatik yanıt gri
+            : Colors.grey[200], 
         borderRadius: BorderRadius.circular(20.0),
       ),
       child: Text(
         message,
-        style: TextStyle(fontSize: 16.0),
+        style: const TextStyle(fontSize: 16.0),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:farmer_chatbot/screens/create_space_screen.dart';
 import 'package:farmer_chatbot/screens/menu_screen.dart';
+import 'package:farmer_chatbot/screens/outdoorSpacesScreen1.dart';
 import 'package:farmer_chatbot/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class OutdoorSpacesScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
+        preferredSize: const Size.fromHeight(100.0),
         child: Padding(
           padding: const EdgeInsets.only(top: 30.0),
           child: AppBar(
@@ -22,20 +23,20 @@ class OutdoorSpacesScreen extends StatelessWidget {
             ),
             centerTitle: true,
             titleTextStyle: const TextStyle(color: appbarColor, fontSize: 17),
-            iconTheme: IconThemeData(color: Colors.green),
+            iconTheme: const IconThemeData(color: Colors.green),
             leading: IconButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MenuScreen(),
+                    builder: (context) => const MenuScreen(),
                   ),
                 );
               },
-              icon: Icon(CupertinoIcons.back),
+              icon: const Icon(CupertinoIcons.back),
             ),
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(1.0),
+              preferredSize: const Size.fromHeight(1.0),
               child: Divider(
                 color: Colors.grey[300],
                 thickness: 1.0,
@@ -60,10 +61,18 @@ class OutdoorSpacesScreen extends StatelessWidget {
                   );
                 }),
                 _buildOutdoorSpaceContainer(
-                    'Outdoor Space 1', '3 Devices', "assets/images/image7.png"),
+                    'Outdoor Space 1', '3 Devices', "assets/images/image7.png",
+                    () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const OutdoorSpacesScreen1(),
+                    ),
+                  );
+                }),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -130,7 +139,7 @@ class OutdoorSpacesScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               if (imagePath != null) ...[
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(

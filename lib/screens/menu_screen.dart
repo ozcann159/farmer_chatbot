@@ -71,7 +71,7 @@ class MenuPage extends StatelessWidget {
         backgroundColor: Colors.white,
       ),
       body: Padding(
-        padding: EdgeInsets.only(bottom: 2.0),
+        padding: const EdgeInsets.only(bottom: 2.0),
         child: ListView(
           children: [
             _buildMenuItem(

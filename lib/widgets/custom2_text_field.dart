@@ -20,9 +20,9 @@ class Custom2TextField extends StatelessWidget {
           TextField(
             decoration: InputDecoration(
               hintText: labelText,
-              contentPadding: EdgeInsets.symmetric(
+              contentPadding: const EdgeInsets.symmetric(
                   vertical: 5.0,
-                  horizontal: 10.0), // İç alanın padding'ini ayarlayın
+                  horizontal: 10.0), 
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
                 borderSide: BorderSide(color: Colors.grey.shade300),

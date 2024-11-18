@@ -13,6 +13,7 @@ class _OnboardingState extends State<Onboarding> {
   int currentIndex = 0;
   late PageController _controller;
 
+  @override
   void initState() {
     _controller = PageController(initialPage: 0);
     super.initState();
@@ -83,10 +84,10 @@ class _OnboardingState extends State<Onboarding> {
           ),
           Container(
             height: 50,
-            margin: EdgeInsets.all(40),
+            margin: const EdgeInsets.all(40),
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Color(0xFF11C166),
+              color: const Color(0xFF11C166),
               borderRadius: BorderRadius.circular(20.0),
             ),
             child: TextButton(
@@ -95,12 +96,12 @@ class _OnboardingState extends State<Onboarding> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => LoginScreen1(),
+                      builder: (context) => const LoginScreen1(),
                     ),
                   );
                 } else {
                   _controller.nextPage(
-                    duration: Duration(milliseconds: 100),
+                    duration: const Duration(milliseconds: 100),
                     curve: Curves.easeIn,
                   );
                 }
@@ -131,10 +132,10 @@ class _OnboardingState extends State<Onboarding> {
     return Container(
       height: 10,
       width: currentIndex == index ? 120 : 10,
-      margin: EdgeInsets.only(right: 5),
+      margin: const EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: currentIndex == index ? Color(0xFF11C166) : Colors.grey,
+        color: currentIndex == index ? const Color(0xFF11C166) : Colors.grey,
       ),
     );
   }

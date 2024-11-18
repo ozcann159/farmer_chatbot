@@ -18,17 +18,17 @@ class EnterCodeScreen extends StatelessWidget {
         ),
         centerTitle: true,
         titleTextStyle: const TextStyle(color: appbarColor, fontSize: 17),
-        iconTheme: IconThemeData(color: Colors.green),
+        iconTheme: const IconThemeData(color: Colors.green),
         leading: IconButton(
           onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ForgotPasswordScreen(),
+                builder: (context) => const ForgotPasswordScreen(),
               ),
             );
           },
-          icon: Icon(CupertinoIcons.back),
+          icon: const Icon(CupertinoIcons.back),
         ),
       ),
       backgroundColor: backgroundColor,
@@ -56,7 +56,7 @@ class EnterCodeScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            const CreateNewPasswordScreen(), // Yeni şifre oluşturma sayfasına yönlendirme
+                            const CreateNewPasswordScreen(), 
                       ),
                     );
                   },

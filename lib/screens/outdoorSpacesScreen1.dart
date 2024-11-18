@@ -37,8 +37,8 @@ class OutdoorSpacesScreen1 extends StatelessWidget {
             color: Colors.white,
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 2.0),
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 2.0),
                   child: Text(
                     'Outdoor Space 1 Inspect',
                     style: TextStyle(
@@ -51,7 +51,7 @@ class OutdoorSpacesScreen1 extends StatelessWidget {
                   color: Colors.grey[400],
                   thickness: 1.0,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Expanded(
                   child: ListView.builder(
                     itemCount: smartLambs.length,
@@ -82,7 +82,7 @@ class OutdoorSpacesScreen1 extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
+        preferredSize: const Size.fromHeight(100.0),
         child: Padding(
           padding: const EdgeInsets.only(top: 30.0),
           child: AppBar(
@@ -92,20 +92,20 @@ class OutdoorSpacesScreen1 extends StatelessWidget {
             ),
             centerTitle: true,
             titleTextStyle: const TextStyle(color: appbarColor, fontSize: 17),
-            iconTheme: IconThemeData(color: Colors.green),
+            iconTheme: const IconThemeData(color: Colors.green),
             leading: IconButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => CreateSpaceScreen(),
+                    builder: (context) => const CreateSpaceScreen(),
                   ),
                 );
               },
-              icon: Icon(CupertinoIcons.back),
+              icon: const Icon(CupertinoIcons.back),
             ),
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(1.0),
+              preferredSize: const Size.fromHeight(1.0),
               child: Divider(
                 color: Colors.grey[300],
                 thickness: 1.0,
@@ -127,7 +127,7 @@ class OutdoorSpacesScreen1 extends StatelessWidget {
                     "assets/images/image-photoroom1.png"),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -137,7 +137,7 @@ class OutdoorSpacesScreen1 extends StatelessWidget {
                     "assets/images/image-photoroom1.png"),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Center(
               child: ElevatedButton(
                 onPressed: () => showBottomSheet(),
@@ -187,7 +187,7 @@ class OutdoorSpacesScreen1 extends StatelessWidget {
               height: 80,
               fit: BoxFit.contain,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
@@ -199,7 +199,7 @@ class OutdoorSpacesScreen1 extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 6),
+            const SizedBox(height: 6),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
