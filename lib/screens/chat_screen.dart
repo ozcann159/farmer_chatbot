@@ -81,14 +81,14 @@ class _ChatPageState extends State<ChatPage> {
       padding: const EdgeInsets.all(20.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white, // Arka plan rengi
-          borderRadius: BorderRadius.circular(20),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5), // Gölgenin rengi
+              color: Colors.grey.withOpacity(0.5),
               spreadRadius: 1,
               blurRadius: 5,
-              offset: const Offset(0, 3), // Gölgenin konumu
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -99,15 +99,12 @@ class _ChatPageState extends State<ChatPage> {
                 controller: _controller,
                 decoration: InputDecoration(
                   hintText: 'Write now...',
-                  hintStyle: TextStyle(
-                      color: Colors.grey.shade400), // Daha silik gri renk
-                  border: InputBorder.none, // Kenar çizgilerini kaldır
-                  focusedBorder: InputBorder
-                      .none, // Odaklandığında kenar çizgilerini kaldır
-                  enabledBorder: InputBorder
-                      .none, // Etkin olduğunda kenar çizgilerini kaldır
-                  contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 15, vertical: 10), // İçerik boşluğu
+                  hintStyle: TextStyle(color: Colors.grey.shade400),
+                  border: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   suffixIcon: IconButton(
                     icon: const Icon(Icons.send),
                     onPressed: () {

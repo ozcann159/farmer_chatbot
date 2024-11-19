@@ -1,5 +1,4 @@
 import 'package:farmer_chatbot/screens/%C4%B1ndoorSpacesScreen.dart';
-import 'package:farmer_chatbot/screens/devicesScreen.dart';
 import 'package:farmer_chatbot/screens/outdoorSpacesScreen.dart';
 import 'package:farmer_chatbot/screens/settings_screen.dart';
 import 'package:farmer_chatbot/utils/constants.dart';
@@ -71,7 +70,7 @@ class MenuPage extends StatelessWidget {
         backgroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(bottom: 2.0),
+        padding: const EdgeInsets.symmetric(horizontal: 0.5, vertical: 0.8),
         child: ListView(
           children: [
             _buildMenuItem(
@@ -86,11 +85,11 @@ class MenuPage extends StatelessWidget {
               const IndoorSpacesScreen(),
             ),
             const Divider(),
-            _buildMenuItem(
-              context,
-              'Devices',
-              const DevicesScreen(),
-            ),
+            // _buildMenuItem(
+            //   context,
+            //   'Devices',
+            //   const DevicesScreen(),
+            // ),
           ],
         ),
       ),
@@ -102,7 +101,7 @@ class MenuPage extends StatelessWidget {
       title: Text(title, style: const TextStyle(fontSize: 17)),
       trailing: const Icon(
         Icons.arrow_forward_ios,
-        color: Colors.blue,
+        color: primaryColor,
       ),
       onTap: () {
         Navigator.push(

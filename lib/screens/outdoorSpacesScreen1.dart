@@ -143,15 +143,16 @@ class OutdoorSpacesScreen1 extends StatelessWidget {
                 onPressed: () => showBottomSheet(),
                 style: ElevatedButton.styleFrom(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 120, vertical: 12),
+                      const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
                   backgroundColor: const Color(0xFF11C166),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(12)),
                 ),
                 child: const Text('Show Detail',
                     style: TextStyle(fontSize: 18.0, color: Colors.white)),
               ),
             ),
+            const SizedBox(height: 15),
           ],
         ),
       ),
